@@ -23,4 +23,6 @@ A simple AI-powered tool that takes user symptoms and suggests possible health c
 pip install -r requirements.txt
 python app.py
 POST http://127.0.0.1:5000/check
+
 Body: {"symptoms": "fever, sore throat"}
+view the tota;l demo video in https://youtu.be/-Q4-DXlmjfA link
