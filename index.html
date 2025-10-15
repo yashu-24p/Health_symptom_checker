@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Healthcare Symptom Checker</title>
-  </head>
-  <body>
-    <h2>Healthcare Symptom Checker</h2>
-    <input type="text" id="symptoms" placeholder="Enter symptoms..." />
-    <button onclick="check()">Check</button>
-    <pre id="result"></pre>
+<head>
+    <title>Health Symptom Checker</title>
+</head>
+<body>
+    <h1>Health Symptom Checker</h1>
+    <form method="POST">
+        <input type="text" name="symptom" placeholder="Enter symptom" required>
+        <button type="submit">Check</button>
+    </form>
 
-    <script>
-      async function check() {
-        const symptoms = document.getElementById('symptoms').value;
-        const res = await fetch('http://127.0.0.1:5000/check', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({ symptoms })
-        });
-        const data = await res.json();
-        document.getElementById('result').textContent = data.result;
-      }
-    </script>
-  </body>
+    {% if result %}
+        <h2>Output:</h2>
+        <p>{{ result }}</p>
+    {% endif %}
+</body>
 </html>
