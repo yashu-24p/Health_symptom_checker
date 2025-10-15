@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import openai
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 openai.api_key = "YOUR_API_KEY_HERE"
 
@@ -25,4 +25,5 @@ def check_symptoms():
     return jsonify({"result": response["choices"][0]["message"]["content"]})
 
 if _name_ == "_main_":
+
     app.run(debug=True)
