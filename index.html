@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Healthcare Symptom Checker</title>
+  </head>
+  <body>
+    <h2>Healthcare Symptom Checker</h2>
+    <input type="text" id="symptoms" placeholder="Enter symptoms..." />
+    <button onclick="check()">Check</button>
+    <pre id="result"></pre>
+
+    <script>
+      async function check() {
+        const symptoms = document.getElementById('symptoms').value;
+        const res = await fetch('http://127.0.0.1:5000/check', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ symptoms })
+        });
+        const data = await res.json();
+        document.getElementById('result').textContent = data.result;
+      }
+    </script>
+  </body>
+</html>
