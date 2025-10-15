@@ -24,6 +24,7 @@ def check_symptoms():
 
     return jsonify({"result": response["choices"][0]["message"]["content"]})
 
-if _name_ == "_main_":
+if __name__ == "_main_":
 
     app.run(debug=True)
+
